@@ -1,0 +1,3 @@
+== Welcome to my Home Budgeting Web Application
+
+I have a home budget workbook that I keep track of expenses. The problem was keeping it updated. Every night when I came home I had to make myself think of expenses and write them down. The solution was to create a web application so I can easily upload my expenses as they come along.

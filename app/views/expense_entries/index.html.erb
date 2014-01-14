@@ -1,0 +1,29 @@
+<h1>Listing expense_entries</h1>
+
+<table>
+  <tr>
+    <th>Amount</th>
+    <th>Date</th>
+    <th>Notes</th>
+    <th>Expense</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @expense_entries.each do |expense_entry| %>
+  <tr>
+    <td><%= expense_entry.amount %></td>
+    <td><%= expense_entry.date %></td>
+    <td><%= expense_entry.notes %></td>
+    <td><%= expense_entry.expense %></td>
+    <td><%= link_to 'Show', expense_entry %></td>
+    <td><%= link_to 'Edit', edit_expense_entry_path(expense_entry) %></td>
+    <td><%= link_to 'Destroy', expense_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Expense entry', new_expense_entry_path %>

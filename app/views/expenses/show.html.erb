@@ -1,0 +1,30 @@
+<p id="notice" class="alert alert-success"><%= notice %></p>
+
+
+<h1 class="page-header"><%= @expense.name %></h1>
+<div class="row">
+	<% %w(Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec).each do |month| %>
+		<div class="col-md-1">
+			<h6><%= month %></h6>
+			<%= number_to_currency @expense.this_month %>
+		</div>
+	<% end %>
+</div>
+	
+<hr>
+
+<% @expense.expense_entries.each do |entry| %>
+	
+<% end %>
+<p>
+  <b>Budget monthly:</b>
+  <%= @expense.budget_monthly %>
+</p>
+
+<p>
+  <b>Budget anual:</b>
+  <%= @expense.budget_anual %>
+</p>
+
+
+<%= link_to 'Edit', edit_expense_path(@expense), class: "btn btn-default" %> 

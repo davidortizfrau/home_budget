@@ -1,0 +1,11 @@
+<% if @expense_entry.errors.any? %>
+  <div id="error_explanation" class="alert alert-danger">
+    <p><%= pluralize(@expense_entry.errors.count, "error") %> prohibited this expense_entry from being saved:</p>
+
+    <ul>
+    <% @expense_entry.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
