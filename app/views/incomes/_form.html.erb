@@ -1,0 +1,30 @@
+<%= form_for(@income) do |f| %>
+  
+  <% if @income.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@income.errors.count, "error") %> prohibited this income from being saved:</h2>
+
+      <ul>
+      <% @income.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :forecast_monthly %><br />
+    <%= f.text_field :forecast_monthly, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :forecast_anual %><br />
+    <%= f.text_field :forecast_anual, class: "form-control" %>
+  </div>
+  <div class="actions">
+    <%= f.submit class: "btn btn-default" %>
+  </div>
+<% end %>

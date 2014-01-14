@@ -2,7 +2,7 @@ class ExpenseEntriesController < ApplicationController
   # GET /expense_entries
   # GET /expense_entries.json
   def index
-    @expense_entries = ExpenseEntry.all
+    @expense_entries = ExpenseEntry.recent.all
 
     respond_to do |format|
       format.html # index.html.erb

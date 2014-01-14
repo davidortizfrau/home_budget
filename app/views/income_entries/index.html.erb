@@ -1,0 +1,29 @@
+<h1>Listing income_entries</h1>
+
+<table>
+  <tr>
+    <th>Amount</th>
+    <th>Date</th>
+    <th>Income</th>
+    <th>Notes</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @income_entries.each do |income_entry| %>
+  <tr>
+    <td><%= income_entry.amount %></td>
+    <td><%= income_entry.date %></td>
+    <td><%= income_entry.income %></td>
+    <td><%= income_entry.notes %></td>
+    <td><%= link_to 'Show', income_entry %></td>
+    <td><%= link_to 'Edit', edit_income_entry_path(income_entry) %></td>
+    <td><%= link_to 'Destroy', income_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Income entry', new_income_entry_path %>

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @income.name %>
+</p>
+
+<p>
+  <b>Forecast monthly:</b>
+  <%= @income.forecast_monthly %>
+</p>
+
+<p>
+  <b>Forecast anual:</b>
+  <%= @income.forecast_anual %>
+</p>
+
+
+<%= link_to 'Edit', edit_income_path(@income) %> |
+<%= link_to 'Back', incomes_path %>

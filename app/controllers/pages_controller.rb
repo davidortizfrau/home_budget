@@ -4,4 +4,9 @@ class PagesController < ApplicationController
 
   def today
   end
+
+  def income
+  	@incomes = Income.all
+  	@entries = IncomeEntry.all
+  end
 end

@@ -1,28 +1,35 @@
-<h1>Listing expense_entries</h1>
+<h1 class="page-header">Listing Expense Entries</h1>
 
-<table>
-  <tr>
-    <th>Amount</th>
-    <th>Date</th>
-    <th>Notes</th>
-    <th>Expense</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="table-responsive">
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Amount</th>
+      <th>Date</th>
+      <th>Category</th>
+      <th>Notes</th>
+      
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+    
 
 <% @expense_entries.each do |expense_entry| %>
   <tr>
-    <td><%= expense_entry.amount %></td>
-    <td><%= expense_entry.date %></td>
+    <td><%= number_to_currency expense_entry.amount %></td>
+    <td><%= expense_entry.date.to_formatted_s(:short) %></td>
+    <td><%= link_to expense_entry.expense.name, expense_entry.expense %></td>
     <td><%= expense_entry.notes %></td>
-    <td><%= expense_entry.expense %></td>
-    <td><%= link_to 'Show', expense_entry %></td>
     <td><%= link_to 'Edit', edit_expense_entry_path(expense_entry) %></td>
-    <td><%= link_to 'Destroy', expense_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Delete', expense_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
+
+</div>
 
 <br />
 

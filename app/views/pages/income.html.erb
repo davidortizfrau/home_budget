@@ -1,0 +1,54 @@
+<h1 class="page-header">Income Sources</h1>
+
+<table class="table">
+	<thead>
+		<tr>
+	    <th>Name</th>
+	    <th>Monthly Forecast</th>
+	    <th>Anual Forecast</th>
+	    <th></th>
+	    <th></th>
+	  </tr>
+	</thead>
+	  
+
+<% @incomes.each do |income| %>
+  <tr>
+    <td><%= link_to income.name, income %></td>
+    <td><%= number_to_currency income.forecast_monthly %></td>
+    <td><%= number_to_currency income.forecast_anual %></td>
+    <td><%= link_to 'Edit', edit_income_path(income) %></td>
+    <td><%= link_to 'Delete', income, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to "Add Income Source", new_income_path %>
+
+<h1 class="page-header">Entries</h1>
+
+<table class="table">
+	<thead>
+	  <tr>
+	    <th>Date</th>
+	    <th>Amount</th>
+	    
+	    <th>Income</th>
+	    <th>Notes</th>
+	    <th></th>
+	    <th></th>
+	  </tr>
+  </thead>
+
+<% @entries.each do |income_entry| %>
+  <tr>
+    <td><%= income_entry.date.to_formatted_s(:short) %></td>
+    <td><%= number_to_currency income_entry.amount %></td>
+    
+    <td><%= income_entry.income.name %></td>
+    <td><%= income_entry.notes %></td>
+    <td><%= link_to 'Edit', edit_income_entry_path(income_entry) %></td>
+    <td><%= link_to 'Delete', income_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>

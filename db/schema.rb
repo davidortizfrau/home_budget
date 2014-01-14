@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140114034052) do
+ActiveRecord::Schema.define(:version => 20140114202815) do
 
   create_table "expense_entries", :force => true do |t|
     t.decimal  "amount"
@@ -30,6 +30,25 @@ ActiveRecord::Schema.define(:version => 20140114034052) do
     t.decimal  "budget_anual"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+  end
+
+  create_table "income_entries", :force => true do |t|
+    t.decimal  "amount"
+    t.date     "date"
+    t.integer  "income_id"
+    t.text     "notes"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "income_entries", ["income_id"], :name => "index_income_entries_on_income_id"
+
+  create_table "incomes", :force => true do |t|
+    t.string   "name"
+    t.decimal  "forecast_monthly"
+    t.decimal  "forecast_anual"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
 end

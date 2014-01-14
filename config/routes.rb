@@ -1,16 +1,18 @@
 HomeBudget::Application.routes.draw do
   
+  resources :income_entries
 
-  
+  resources :incomes
+
   resources :expense_entries
 
   resources :expenses
 
   root to: "pages#index"
 
-  get "pages/index"
-
   get "pages/today"
+
+  match 'income' => 'pages#income'
 
 
   # The priority is based upon order of creation:
