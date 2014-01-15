@@ -4,8 +4,11 @@
 	<thead>
 		<tr>
 	    <th>Name</th>
-	    <th>Monthly Forecast</th>
-	    <th>Anual Forecast</th>
+	    <th>Today</th>
+	    <th><%= Date.today.strftime("%B")%></th>
+	    <th><%= Date.today.year %></th>
+	    <!-- <th>Monthly Forecast</th> -->
+	    <!-- <th>Anual Forecast</th> -->
 	    <th></th>
 	    <th></th>
 	  </tr>
@@ -15,8 +18,11 @@
 <% @incomes.each do |income| %>
   <tr>
     <td><%= link_to income.name, income %></td>
-    <td><%= number_to_currency income.forecast_monthly %></td>
-    <td><%= number_to_currency income.forecast_anual %></td>
+    <td><%= number_to_currency income.total_today %></td>
+    <td><%= number_to_currency income.total_month %></td>
+    <td><%= number_to_currency income.total_year %></td>
+    <!-- <td><%= number_to_currency income.forecast_monthly %></td> -->
+    <!-- <td><%= number_to_currency income.forecast_anual %></td> -->
     <td><%= link_to 'Edit', edit_income_path(income) %></td>
     <td><%= link_to 'Delete', income, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>

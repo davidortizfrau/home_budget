@@ -1,3 +1,8 @@
+<h1>Income</h1>
+<p>Today: <%= number_to_currency IncomeEntry.total_today %></p>
+<p>This Month: <%= number_to_currency IncomeEntry.total_month %></p>
+<p>This Year: <%= number_to_currency IncomeEntry.total_year %></p>
+
 <h1 class="page-header">Expenses Overview</h1>
 
 <table class="table">
@@ -6,14 +11,16 @@
     <th>Name</th>
     <th>Today</th>
     <th><%= @date.strftime("%B")%></th>
-    <th>Monthly Budget</th>
+    <th><%= @date.year %></th>
+    <th>Budget</th>
   </tr></thead>
 
 <% @expenses.each do |expense| %>
   <tr>
     <td><%= link_to expense.name, expense %></td>
-    <td><%= number_to_currency expense.today %></td>
-    <td><%= number_to_currency expense.this_month %></td>
+    <td><%= number_to_currency expense.total_today %></td>
+    <td><%= number_to_currency expense.total_month %></td>
+    <td><%= number_to_currency expense.total_year %></td>
     <td><%= number_to_currency expense.budget_monthly %></td>
   </tr>
 <% end %>

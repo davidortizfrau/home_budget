@@ -3,7 +3,7 @@
 	<% %w(Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec).each do |month| %>
 		<div class="col-md-1">
 			<h6><%= month %></h6>
-			<%= number_to_currency @expense.this_month %>
+			<%= number_to_currency @expense.total_month %>
 		</div>
 	<% end %>
 </div>
@@ -16,11 +16,6 @@
 <p>
   <b>Budget monthly:</b>
   <%= @expense.budget_monthly %>
-</p>
-
-<p>
-  <b>Budget anual:</b>
-  <%= @expense.budget_anual %>
 </p>
 
 
