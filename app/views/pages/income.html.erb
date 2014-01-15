@@ -1,10 +1,10 @@
 <h1 class="page-header">Income Sources</h1>
-
+<div class="table-responsive">
 <table class="table">
 	<thead>
 		<tr>
 	    <th>Name</th>
-	    <th>Today</th>
+	    <!-- <th>Today</th> -->
 	    <th><%= Date.today.strftime("%B")%></th>
 	    <th><%= Date.today.year %></th>
 	    <!-- <th>Monthly Forecast</th> -->
@@ -18,7 +18,7 @@
 <% @incomes.each do |income| %>
   <tr>
     <td><%= link_to income.name, income %></td>
-    <td><%= number_to_currency income.total_today %></td>
+    <!-- <td><%= number_to_currency income.total_today %></td> -->
     <td><%= number_to_currency income.total_month %></td>
     <td><%= number_to_currency income.total_year %></td>
     <!-- <td><%= number_to_currency income.forecast_monthly %></td> -->
@@ -28,11 +28,11 @@
   </tr>
 <% end %>
 </table>
-
-<%= link_to "Add Income Source", new_income_path %>
+</div>
+<%= link_to "Add Income Source", new_income_path, class: "btn btn-default" %>
 
 <h1 class="page-header">Entries</h1>
-
+<div class="table-responsive">
 <table class="table">
 	<thead>
 	  <tr>
@@ -58,3 +58,6 @@
   </tr>
 <% end %>
 </table>
+</div>
+
+<%= link_to "Add Income Entry", new_income_entry_path, class: "btn btn-default" %>

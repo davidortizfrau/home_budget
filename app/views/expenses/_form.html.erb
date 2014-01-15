@@ -10,6 +10,10 @@
         <%= f.label :budget_monthly, "Monthly Budget" %><br />
         <%= f.text_field :budget_monthly, class: "form-control" %>
       </div>
+      <div class="form-group">
+        <input type="checkbox" id="expense_track" name="expense[track]" value="true">
+        <%= f.label :track, "Track" %>
+      </div>
       <div class="actions">
         <%= f.submit class: "btn btn-default" %>
       </div>

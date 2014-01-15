@@ -6,8 +6,9 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Amount</th>
       <th>Date</th>
+      <th>Amount</th>
+      
       <th>Category</th>
       <th>Notes</th>
       
@@ -19,8 +20,8 @@
 
 <% @expense_entries.each do |expense_entry| %>
   <tr>
-    <td><%= number_to_currency expense_entry.amount %></td>
     <td><%= expense_entry.date.to_formatted_s(:short) %></td>
+    <td><%= number_to_currency expense_entry.amount %></td>
     <td><%= link_to expense_entry.expense.name, expense_entry.expense %></td>
     <td><%= expense_entry.notes %></td>
     <td><%= link_to 'Edit', edit_expense_entry_path(expense_entry) %></td>
@@ -31,6 +32,5 @@
 
 </div>
 
-<br />
 
-<%= link_to 'New Expense entry', new_expense_entry_path %>
+<%= link_to 'New Expense entry', new_expense_entry_path, class: "btn btn-default" %>

@@ -5,6 +5,9 @@ class PagesController < ApplicationController
   def today
   end
 
+  def cash_flow
+  end
+
   def income
   	@incomes = Income.all
   	@entries = IncomeEntry.all

@@ -1,32 +1,35 @@
-<h1>Income</h1>
-<p>Today: <%= number_to_currency IncomeEntry.total_today %></p>
-<p>This Month: <%= number_to_currency IncomeEntry.total_month %></p>
-<p>This Year: <%= number_to_currency IncomeEntry.total_year %></p>
-
-<h1 class="page-header">Expenses Overview</h1>
-
+<h1 class="page-header">Budget Overview</h1>
+<div class="table-responsive">
 <table class="table">
   <thead>
   <tr>
-    <th>Name</th>
-    <th>Today</th>
-    <th><%= @date.strftime("%B")%></th>
-    <th><%= @date.year %></th>
+    <th>Expense</th>
     <th>Budget</th>
+    <th><%= @date.strftime("%B")%></th>    
+    <!-- <th><%= @date.year %></th> -->
+    <th>mo. avg.</th>
+    
   </tr></thead>
 
 <% @expenses.each do |expense| %>
   <tr>
     <td><%= link_to expense.name, expense %></td>
-    <td><%= number_to_currency expense.total_today %></td>
-    <td><%= number_to_currency expense.total_month %></td>
-    <td><%= number_to_currency expense.total_year %></td>
     <td><%= number_to_currency expense.budget_monthly %></td>
+    <td><%= number_to_currency expense.total_month %></td>
+    <!-- <td><%= number_to_currency expense.total_year %></td> -->
+    <td>-</td>
   </tr>
 <% end %>
+
+<!-- table totals -->
+  <tr>
+    <td><b class="pull-right">Total</b></td>
+    <td><b><%= number_to_currency Expense.total_budget %></b></td>
+    <td><b><%= number_to_currency Expense.total_month_expenses %></b></td>
+    <td></td>
+  </tr>
+
 </table>
+</div>
 
-<br />
-
-<%= link_to 'New Expense Category', new_expense_path %><br>
-<%= link_to 'New Expense Entry', new_expense_entry_path %>
+<%= link_to 'New Expense Category', new_expense_path, class: "btn btn-default" %>

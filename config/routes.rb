@@ -10,9 +10,10 @@ HomeBudget::Application.routes.draw do
 
   root to: "pages#index"
 
-  get "pages/today"
-
   match 'income' => 'pages#income'
+  match 'budget' => 'expenses#index'
+  match 'cash_flow' => 'pages#cash_flow'
+  match 'track' => 'pages#track'
 
 
   # The priority is based upon order of creation:

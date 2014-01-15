@@ -1,22 +1,59 @@
-<h1 class="page-header"><%= @expense.name %></h1>
-<div class="row">
+<h1 class="page-header"><%= @expense.name %> 
+	<% if @expense.track %>
+		<small><span class="glyphicon glyphicon-eye-open"></span></small>
+	<% end %>
+</h1>
+
+<p>
+  <b>This Month Expenses:</b>
+  <%= number_to_currency @expense.total_month %>
+</p>
+<p>
+  <b>Budget monthly:</b>
+  <%= number_to_currency @expense.budget_monthly %> <%= link_to 'change', edit_expense_path(@expense) %>
+</p>
+<p>
+  <b>Leftover:</b>
+  <%= @expense.budget_monthly - @expense.total_month %>
+</p>
+
+<div class="table-responsive">
+	<table class="table">
+	  <thead>
+	    <tr>
+	      <th>Date</th>
+	      <th>Amount</th>
+	      <th>Notes</th>
+	      
+	      <th></th>
+	      <th></th>
+	    </tr>
+	  </thead>
+
+		<% @expense.expense_entries.this_month.each do |expense_entry| %>
+		  <tr>
+		  	<td><%= expense_entry.date.to_formatted_s(:short) %></td>
+		    <td><%= number_to_currency expense_entry.amount %></td>
+		    <td><%= expense_entry.notes %></td>
+		    <td><%= link_to 'Edit', edit_expense_entry_path(expense_entry) %></td>
+		    <td><%= link_to 'Delete', expense_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		  </tr>
+		<% end %>
+
+		</table>
+	</div>
+
+
+
+
+<%= link_to 'Edit', edit_expense_path(@expense), class: "btn btn-default" %> 
+
+
+<!-- <div class="row">
 	<% %w(Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec).each do |month| %>
 		<div class="col-md-1">
 			<h6><%= month %></h6>
 			<%= number_to_currency @expense.total_month %>
 		</div>
 	<% end %>
-</div>
-	
-<hr>
-
-<% @expense.expense_entries.each do |entry| %>
-	
-<% end %>
-<p>
-  <b>Budget monthly:</b>
-  <%= @expense.budget_monthly %>
-</p>
-
-
-<%= link_to 'Edit', edit_expense_path(@expense), class: "btn btn-default" %> 
+</div> -->
