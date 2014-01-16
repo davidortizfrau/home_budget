@@ -28,4 +28,6 @@ class Income < ActiveRecord::Base
 	  total 
   end
 
+  
+
 end

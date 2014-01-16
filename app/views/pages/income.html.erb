@@ -1,33 +1,41 @@
 <h1 class="page-header">Income Sources</h1>
 <div class="table-responsive">
-<table class="table">
-	<thead>
-		<tr>
-	    <th>Name</th>
-	    <!-- <th>Today</th> -->
-	    <th><%= Date.today.strftime("%B")%></th>
-	    <th><%= Date.today.year %></th>
-	    <!-- <th>Monthly Forecast</th> -->
-	    <!-- <th>Anual Forecast</th> -->
-	    <th></th>
-	    <th></th>
-	  </tr>
-	</thead>
-	  
+	<table class="table">
+		<thead>
+			<tr>
+		    <th>Name</th>
+		    <!-- <th>Today</th> -->
+		    <th><%= Date.today.strftime("%B")%></th>
+		    <th><%= Date.today.year %></th>
+		    <!-- <th>Monthly Forecast</th> -->
+		    <!-- <th>Anual Forecast</th> -->
+		    <th></th>
+		    <th></th>
+		  </tr>
+		</thead>
+		  
 
-<% @incomes.each do |income| %>
-  <tr>
-    <td><%= link_to income.name, income %></td>
-    <!-- <td><%= number_to_currency income.total_today %></td> -->
-    <td><%= number_to_currency income.total_month %></td>
-    <td><%= number_to_currency income.total_year %></td>
-    <!-- <td><%= number_to_currency income.forecast_monthly %></td> -->
-    <!-- <td><%= number_to_currency income.forecast_anual %></td> -->
-    <td><%= link_to 'Edit', edit_income_path(income) %></td>
-    <td><%= link_to 'Delete', income, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+	<% @incomes.each do |income| %>
+	  <tr>
+	    <td><%= link_to income.name, income %></td>
+	    <!-- <td><%= number_to_currency income.total_today %></td> -->
+	    <td><%= number_to_currency income.total_month %></td>
+	    <td><%= number_to_currency income.total_year %></td>
+	    <!-- <td><%= number_to_currency income.forecast_monthly %></td> -->
+	    <!-- <td><%= number_to_currency income.forecast_anual %></td> -->
+	    <td><%= link_to 'Edit', edit_income_path(income) %></td>
+	    <td><%= link_to 'Delete', income, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	  </tr>
+	<% end %>
+
+		<tr>
+			<td><b class="pull-right">Total</b></td>
+			<td><b><%= number_to_currency IncomeEntry.total_month %></b></td>
+			<td><b><%= number_to_currency IncomeEntry.total_year %></b></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
 </div>
 <%= link_to "Add Income Source", new_income_path, class: "btn btn-default" %>
 

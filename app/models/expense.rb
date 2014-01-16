@@ -1,7 +1,7 @@
 class Expense < ActiveRecord::Base
   attr_accessible :budget_monthly, :name, :track
 
-  validates :name, presence: true
+  validates :name, :budget_monthly, presence: true
 
   has_many :expense_entries
 

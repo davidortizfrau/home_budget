@@ -1,9 +1,23 @@
 @media(max-width:767px){ 
-	body {padding-bottom: 20px;}
+	
+	body {
+		padding-top: 70px;
+		padding-bottom: 20px;
+		font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	}
+
+	.jumbotron {
+		padding-top: 10px;
+		background-image: url('/assets/pic.jpg');
+		h1 {font-size: .8em;font-family: "Permanent Marker"}
+
+	}
 
 	h1.page-header { font-size: 1.5em; }
 
 	footer { display: none;}
 
 	#aaa { display: block; }
+
+	/*.jumbotron {display: none}*/
 }

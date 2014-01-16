@@ -1,6 +1,27 @@
-<h1 class="page-header">Welcome!</h1>
-<%= link_to "New Expense Entry", new_expense_entry_path, class: "btn btn-danger", id:"aaa"  %>
-<hr>
-<%= link_to "New Income Entry", new_income_entry_path, class: "btn btn-success", id:"aaa"  %>
-<hr>
-<%= link_to "Add Expense Category", new_expense_path, class: "btn btn-primary", id:"aaa"  %>
+<div class="jumbotron">
+	<h1>Home Budgeting simplified </h1>
+</div>
+
+<div class="row hidden-xs">
+  <div class="col-xs-4">
+    <%= link_to "New Expense Entry", new_expense_entry_path, class: "btn btn-danger center-block", id:"aaa"  %>
+  </div>
+  <div class="col-xs-4">
+    <%= link_to "New Income Entry", new_income_entry_path, class: "btn btn-success center-block", id:"aaa"  %>
+  </div>
+  <div class="col-xs-4">
+    <%= link_to "Add Expense Category", new_expense_path, class: "btn btn-primary center-block", id:"aaa"  %>
+  </div>
+</div>
+
+
+<div id="mobile_interface">
+
+
+
+	<%= link_to "New Expense Entry", new_expense_entry_path, class: "btn btn-danger", id:"aaa"  %>
+	<hr>
+	<%= link_to "New Income Entry", new_income_entry_path, class: "btn btn-success", id:"aaa"  %>
+	<hr>
+	<%= link_to "Add Expense Category", new_expense_path, class: "btn btn-primary", id:"aaa"  %>
+</div>
