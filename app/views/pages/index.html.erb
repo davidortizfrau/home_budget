@@ -1,23 +1,37 @@
-<div class="jumbotron">
-	<h1>Home Budgeting simplified </h1>
-</div>
+<div class="steps" align="center">
+	<h1>Simplified Home Budgeting</h1>
+  <h1>∞</h1>
 
 <div class="row hidden-xs">
-  <div class="col-xs-4">
-    <%= link_to "New Expense Entry", new_expense_entry_path, class: "btn btn-danger center-block", id:"aaa"  %>
+  <div class="col-md-3">
+    <h1>Step 1</h1>
+    <p>Create a Budget</p>
+    <%= link_to "Add Expense Category", new_expense_path, class: "btn btn-default"  %>
   </div>
-  <div class="col-xs-4">
-    <%= link_to "New Income Entry", new_income_entry_path, class: "btn btn-success center-block", id:"aaa"  %>
+
+  <div class="col-md-3">
+    <h1>Step 2</h1>
+    <p>Forecast Income</p>
+    <%= link_to "Add Source of Income", new_income_path, class: "btn btn-default"  %>
   </div>
-  <div class="col-xs-4">
-    <%= link_to "Add Expense Category", new_expense_path, class: "btn btn-primary center-block", id:"aaa"  %>
+
+  <div class="col-md-3">
+    <h1>Step 3</h1>
+    <p>Track Expenses</p>
+    <%= link_to "New Expense Entry", new_expense_entry_path, class: "btn btn-default"  %>
   </div>
+
+  <div class="col-md-3">
+    <h1>Step 4</h1>
+    <p>Log Income</p>
+    <%= link_to "New Income Entry", new_income_entry_path, class: "btn btn-default"  %>
+  </div>
+</div>
+
 </div>
 
 
 <div id="mobile_interface">
-
-
 
 	<%= link_to "New Expense Entry", new_expense_entry_path, class: "btn btn-danger", id:"aaa"  %>
 	<hr>

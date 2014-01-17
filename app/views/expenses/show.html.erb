@@ -2,6 +2,7 @@
 	<% if @expense.track %>
 		<small><span class="glyphicon glyphicon-eye-open"></span></small>
 	<% end %>
+	<%= link_to "(edit)", edit_expense_path(@expense) %>
 </h1>
 
 <p>
@@ -10,7 +11,7 @@
 </p>
 <p>
   <b>Budget monthly:</b>
-  <%= number_to_currency @expense.budget_monthly %> <%= link_to 'change', edit_expense_path(@expense) %>
+  <%= number_to_currency @expense.budget_monthly %> <%= link_to '(adjust)', edit_expense_path(@expense) %>
 </p>
 <p>
   <b>Leftover:</b>
@@ -43,17 +44,4 @@
 		</table>
 	</div>
 
-
-
-
-<%= link_to 'Edit', edit_expense_path(@expense), class: "btn btn-default" %> 
-
-
-<!-- <div class="row">
-	<% %w(Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec).each do |month| %>
-		<div class="col-md-1">
-			<h6><%= month %></h6>
-			<%= number_to_currency @expense.total_month %>
-		</div>
-	<% end %>
-</div> -->
+	<%= link_to "Add #{@expense.name} Expense Entry", new_expense_entry_path %>

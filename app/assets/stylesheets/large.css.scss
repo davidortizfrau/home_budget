@@ -21,16 +21,24 @@
 
 	#mobile_interface {display: none}
 
-	.jumbotron {
-		background-image: url('/assets/pic.jpg');
-		background-position: 0 -170px;
+	.steps {
+		/*background-image: url('/assets/pic.jpg');
+		background-position: 0 -170px;*/
 		h1 {
 			font-family: 'Permanent Marker', cursive;
+			font-size: 3em;
+		}
 
+		p {
+			font-family: 'Permanent Marker', cursive;
+			font-size: 1.5em;
+		}
+
+		h2 {
 			font-size: 2em;
 		}
 		a {
-			width: 200px;
+			/*width: 200px;*/
 			/*margin: 0 auto;*/
 			/*font-family: 'Short Stack', cursive;*/
 			/*font-size: .9em;*/
