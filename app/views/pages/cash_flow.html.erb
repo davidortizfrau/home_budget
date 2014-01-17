@@ -1,10 +1,101 @@
 <h1 class="page-header">Cash Flow</h1>
 
-<h3>Income</h3>
-<p>Today: <%= number_to_currency IncomeEntry.total_today %></p>
-<p>This Month: <%= number_to_currency IncomeEntry.total_month %></p>
-<p>This Year: <%= number_to_currency IncomeEntry.total_year %></p>
+<div class="table-responsive">
+	<table class="table">
+		<thead>
+			<tr>
+				<th></th>
+				<th>Projected</th>
+				<th><%= @date.strftime("%B")%></th>
+				<th><%= @date.year %></th>
+			</tr>
+		</thead>
 
-<h3>Expenses</h3>
+		<tr>
+			<td>Total Income</td>
+			<td><%= number_to_currency @in_forecast %></td>
+			<td><%= number_to_currency @in_month %></td>
+			<td><%= number_to_currency @in_year %></td>
+		</tr>
+		<tr>
+			<td>Total Expenses</td>
+			<td><%= number_to_currency @out_forecast %></td>
+			<td><%= number_to_currency @out_month %></td>
+			<td><%= number_to_currency @out_year %></td>
+		</tr>
+		<tr>
+			<td>Balance</td>
+			<td><%= number_to_currency(@in_forecast - @out_forecast) %></td>
+			<td><%= number_to_currency(@in_month - @out_month) %></td>
+			<td><%= number_to_currency(@in_year - @out_year) %></td>
+		</tr>
+	</table>
+</div>
+	
+<!-- 
+<div class="row">
+	<div class="col-sm-4">
+		<div class="panel panel-default">
+			<div class="panel-heading">Projected</div>
+			<div class="panel-body">
+				
+				<div class="row">
+					<div class="col-xs-6">
+						<p class="pull-right"><b>Total Income</b></p>
+						<p class="pull-right"><b>Total Expenses</b></p>
+						<p class="pull-right"><b>Balance</b></p>
+					</div>
+					<div class="col-xs-6">
+						<p><%= number_to_currency @in_forecast %></p>
+						<p><%= number_to_currency @out_forecast %></p>
+						<p><%= number_to_currency(@in_forecast - @out_forecast) %></p>
+					</div>
+				</div>
+						
 
-Projected and Actual
+			</div>
+		</div>
+	</div>
+
+	<div class="col-sm-4">
+		<div class="panel panel-default">
+			<div class="panel-heading"><%= @date.strftime("%B")%></div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-xs-6">
+						<p class="pull-right"><b>Total Income</b></p>
+						<p class="pull-right"><b>Total Expenses</b></p>
+						<p class="pull-right"><b>Balance</b></p>
+					</div>
+					<div class="col-xs-6">
+						<p><%= number_to_currency @in_month %></p>
+						<p><%= number_to_currency @in_month %></p>
+						<p><%= number_to_currency(@in_month - @out_month) %></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-sm-4">
+		<div class="panel panel-default">
+			<div class="panel-heading"><%= @date.year %></div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-xs-6">
+						<p class="pull-right"><b>Total Income</b></p>
+						<p class="pull-right"><b>Total Expenses</b></p>
+						<p class="pull-right"><b>Balance</b></p>
+					</div>
+					<div class="col-xs-6">
+						<p><%= number_to_currency @in_year %></p>
+						<p></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+		
+ -->

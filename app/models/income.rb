@@ -28,6 +28,14 @@ class Income < ActiveRecord::Base
 	  total 
   end
 
+  def self.month_forecast
+  	total = 0
+  	Income.all.each do |i|
+  		total += i.forecast_monthly
+  	end
+  	total
+  end
+
   
 
 end

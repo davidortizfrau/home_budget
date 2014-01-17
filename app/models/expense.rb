@@ -38,7 +38,7 @@ class Expense < ActiveRecord::Base
   end
 
   # Class Methods
-  def self.total_budget
+  def self.monthly_budget
     total = 0
     Expense.all.each do |expense|
       total += expense.budget_monthly
