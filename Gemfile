@@ -22,7 +22,7 @@ end
 
 gem 'jquery-rails'
 
-gem 'newrelic_rpm'
+gem "newrelic_rpm", "~> 3.7.1.188"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
