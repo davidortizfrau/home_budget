@@ -15,7 +15,7 @@
     <tr class="danger">
       <td><%= link_to expense.name, expense %></td>
       <td><%= number_to_currency expense.budget_monthly %></td>
-      <td><%= number_to_currency expense.total_month %></td>
+      <td><%= number_to_currency expense.this_month_total %></td>
       <td>-</td>
     </tr>
   <% else %>
