@@ -22,4 +22,11 @@
 	input[type="text"]:focus, input[type="password"], textarea:focus, select:focus, input[type="number"]:focus {
 	  font-size: 16px;
 	}
+
+	#mobile_interface {
+		img { 
+			/*width: 75%;*/
+			height: 75%;
+	  }
+	}
 }

@@ -7,7 +7,7 @@
 
 <p>
   <b>This Month Expenses:</b>
-  <%= number_to_currency @expense.total_month %>
+  <%= number_to_currency @expense.this_month_total %>
 </p>
 <p>
   <b>Budget monthly:</b>
@@ -15,8 +15,12 @@
 </p>
 <p>
   <b>Leftover:</b>
-  <%= @expense.budget_monthly - @expense.total_month %>
+  <%= number_to_currency (@expense.budget_monthly - @expense.this_month_total) %>
 </p>
+
+<hr>
+<%= link_to "Add Expense Entry", new_expense_entry_path, class: "btn btn-default" %>
+
 
 <div class="table-responsive">
 	<table class="table">
@@ -43,5 +47,3 @@
 
 		</table>
 	</div>
-
-	<%= link_to "Add #{@expense.name} Expense Entry", new_expense_entry_path %>

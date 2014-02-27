@@ -17,9 +17,23 @@ class Expense < ActiveRecord::Base
     total 
   end
 
-  def total_month
+  def this_month_total
     total = 0
     self.expense_entries.this_month.each do |e|
+      total += e.amount
+    end
+    total 
+  end
+
+  def cashflow(month)
+    self.budget_monthly - self.month_total(month)
+  end
+
+  def month_total(month)
+    total = 0
+    self.expense_entries.where('extract(year from date) = ? 
+                                AND extract(month from date) = ?', 
+                                Date.today.year, month).each do |e|
       total += e.amount
     end
     total 
@@ -34,7 +48,24 @@ class Expense < ActiveRecord::Base
   end
 
   def month_average
-    # Compute monthly average based on current data
+    if self.month_range
+      self.total_year / self.month_range.count
+    else
+      0
+    end
+  end
+
+  def month_range
+    entries = self.expense_entries.this_year
+    
+    if entries.count > 0
+      a = entries.last.date.month
+      b = entries.first.date.month
+      (a..b)
+    else
+      false
+    end
+
   end
 
   # Class Methods
@@ -55,5 +86,7 @@ class Expense < ActiveRecord::Base
     end
     total
   end
+
+
   
 end

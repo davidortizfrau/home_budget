@@ -2,4 +2,25 @@
 
 <% Expense.track.each do |tracking| %>
 	<h1><%= tracking.name %></h1>
+	
+	<% if tracking.month_range %>
+	<p>Monthly Average = <%= number_to_currency tracking.month_average %></p>
+	<p>Monthly Budget = <%= number_to_currency tracking.budget_monthly %> <%= link_to "adjust", edit_expense_path(tracking) %></p>
+		<div class="row">
+		<% tracking.month_range.each do |m| %>
+			
+			<div class="col-md-2">
+				<h5><%= Date::MONTHNAMES[m] %></h5>
+				<p><%= number_to_currency tracking.month_total(m) %></p>
+				<% if tracking.cashflow(m) < 0 %>
+					<p style="color:red"><%= number_to_currency tracking.cashflow(m) %></p>
+				<% else %>
+					<p style="color:green"><%= number_to_currency tracking.cashflow(m) %></p>
+				<% end %>
+			</div>
+			
+		<% end %>
+		</div>
+	<% end %>
+		
 <% end %>

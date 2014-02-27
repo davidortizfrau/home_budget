@@ -13,6 +13,7 @@ class ExpenseEntry < ActiveRecord::Base
 
   scope :recent, limit(25)
 
+
   def self.total_today
   	total = 0
 		ExpenseEntry.this_day.each do |e|
