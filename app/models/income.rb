@@ -1,6 +1,6 @@
 class Income < ActiveRecord::Base
   attr_accessible :forecast_anual, :forecast_monthly, :name
-  has_many :income_entries
+  has_many :income_entries, dependent: :destroy
 
   validates :name, presence: true
   

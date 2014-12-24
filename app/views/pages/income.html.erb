@@ -58,7 +58,7 @@
     <td><%= income_entry.date.to_formatted_s(:short) %></td>
     <td><%= number_to_currency income_entry.amount %></td>
     
-    <td><%= income_entry.income.name %></td>
+    <td><%= income_entry.income.name if income_entry.income %></td>
     <td><%= income_entry.notes %></td>
     <td><%= link_to 'Edit', edit_income_entry_path(income_entry) %></td>
     <td><%= link_to 'Delete', income_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
