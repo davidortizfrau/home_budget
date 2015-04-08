@@ -3,7 +3,7 @@ class Expense < ActiveRecord::Base
 
   validates :name, :budget_monthly, presence: true
 
-  has_many :expense_entries
+  has_many :expense_entries, dependent: :destroy
 
   default_scope order: :name
 
@@ -19,8 +19,10 @@ class Expense < ActiveRecord::Base
 
   def this_month_total
     total = 0
-    self.expense_entries.this_month.each do |e|
-      total += e.amount
+    if self.expense_entries.any?
+      self.expense_entries.this_month.each do |e|
+        total += e.amount
+      end
     end
     total 
   end

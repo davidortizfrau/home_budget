@@ -16,14 +16,14 @@
       <td><%= link_to expense.name, expense %></td>
       <td><%= number_to_currency expense.budget_monthly %></td>
       <td><%= number_to_currency expense.this_month_total %></td>
-      <td><%= number_to_currency expense.month_average %></td>
+      <td><%#= number_to_currency expense.month_average %></td>
     </tr>
   <% else %>
     <tr>
       <td><%= link_to expense.name, expense %></td>
       <td><%= number_to_currency expense.budget_monthly %></td>
       <td><%= number_to_currency expense.this_month_total %></td>
-      <td><%= number_to_currency expense.month_average %></td>
+      <td><%#= number_to_currency expense.month_average %></td>
     </tr>
   <% end %>
 
@@ -33,7 +33,7 @@
   <tr>
     <td><b class="pull-right">Total - </b></td>
     <td><b><%= number_to_currency Expense.monthly_budget %></b></td>
-    <td><b><%= number_to_currency Expense.total_month_expenses %></b></td>
+    <td><b><%#= number_to_currency Expense.total_month_expenses %></b></td>
     <td></td>
   </tr>
 
