@@ -2,13 +2,13 @@
 <div class="table-responsive">
 <table class="table">
   <thead>
-  <tr>
-    <th>Expense</th>
-    <th>Budget</th>
-    <th><%= @date.strftime("%B")%></th>
-    <th>mo. avg.</th>
-    
-  </tr></thead>
+    <tr>
+      <th>Expense</th>
+      <th>Budget</th>
+      <th><%= @date.strftime("%B")%></th>
+      <th></th>
+    </tr>
+  </thead>
 
 <% @expenses.each do |expense| %>
   <% if expense.this_month_total > expense.budget_monthly %>
@@ -16,14 +16,14 @@
       <td><%= link_to expense.name, expense %></td>
       <td><%= number_to_currency expense.budget_monthly %></td>
       <td><%= number_to_currency expense.this_month_total %></td>
-      <td><%#= number_to_currency expense.month_average %></td>
+      <td><%= link_to 'Delete', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% else %>
     <tr>
       <td><%= link_to expense.name, expense %></td>
       <td><%= number_to_currency expense.budget_monthly %></td>
       <td><%= number_to_currency expense.this_month_total %></td>
-      <td><%#= number_to_currency expense.month_average %></td>
+      <td><%= link_to 'Delete', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
 
